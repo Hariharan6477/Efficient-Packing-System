@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form </title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'><link rel="stylesheet" href="static/loginstyle.css">
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login-form">
+  <form action="{{url_for('loginchk')}}", method="post">
+    <div class="msg">{{ msg }}</div>
+    <h1>Login</h1>
+    <div class="content">
+      <div class="input-field">
+        <input required type="text" title="Email should not be empty an end with @gmail.com" pattern="[A-Za-z0-9]*+@gmail.com" placeholder="Email" autocomplete="nope" name="email">
+      </div>
+      <div class="input-field">
+        <input required type="password"  autocomplete="nope" title="Password should not be empty " pattern="[A-Za-z0-9]*{8,13}" placeholder="password" name="password">
+      </div>
+      <a href="register" class="link">Don't have an account? Sign up</a>
+    </div>
+    <div class="action">
+        <button type="submit" >Sign-in</button>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>

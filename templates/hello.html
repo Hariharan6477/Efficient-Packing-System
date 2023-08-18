@@ -1,0 +1,298 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Knapsack Problem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('static/cap_ip_img.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        h1 {
+            text-align: center;
+            color: #080707; /* Set the color of the heading text if needed */
+        }
+    .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%; /* Increase the width of the container */
+        max-width: 900px; /* Set a maximum width if needed */
+        padding: 50px; /* Increase the padding for more space */
+        background: rgba(235, 230, 230, 0.5);
+        border-radius: 10px;
+        color: #141313;
+    }
+
+    /* Increase the font size and spacing of the form inputs and labels */
+    form input[type="text"],
+    form input[type="number"] {
+        font-size: 18px;
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+
+    form label {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    /* Increase the font size and spacing of the submit button */
+    form input[type="submit"] {
+        padding: 14px 28px;
+        font-size: 20px;
+        border-radius: 10px;
+    }
+
+        .container{
+            position:absolute; /* Position the background text */
+            top: 235px; /* At the bottom. Use top:0 to append it to the top */
+            background: rgb(235, 230, 230); /* Fallback color */
+            background: rgba(235, 230, 230, 0.5); /* Black background with 0.5 opacity */
+            width: 100%; /* Full width */
+            padding: 20px; /* Some padding */
+            max-width :600px;
+            /* justify-content: center; */
+            /* align-items: center; */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: transparent;
+            padding: 20px;
+            border-radius: 5px;
+            color: #141313;
+        }
+
+        form {
+            background: #f2f2f2;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .input-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .input-group input {
+            flex: 1;
+            margin-left: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        select {
+            width: 20%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: 10ex;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: transparent; 
+            color: #245953; 
+            border: 2px solid #245953;
+            
+        }
+
+        input[type="submit"]:hover {
+            background-color: #245953;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>PRODUCT DETAILS</h1>
+    <div class="container">
+        <form id="knapsack-form">
+            <div>
+                <label for="num-products">Number of Products:</label>
+                <input type="number" id="num-products" name="num-products" placeholder="Enter the number of products" required>
+            </div>
+            <div id="product-inputs"></div>
+            <div id="capacity-input">
+                <label for="capacity">Capacity:</label>
+                <input type="number" id="capacity" name="capacity" placeholder="Enter capacity" required>
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("knapsack-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get the number of products entered by the user
+            const numProducts = parseInt(document.getElementById("num-products").value);
+
+            // Create input fields for weights and values based on the number of products
+            const productInputsContainer = document.getElementById("product-inputs");
+            productInputsContainer.innerHTML = ""; // Clear previous inputs
+
+            for (let i = 1; i <= numProducts; i++) {
+                const inputGroup = document.createElement("div");
+                inputGroup.className = "input-group";
+
+                const weightLabel = document.createElement("label");
+                weightLabel.textContent = "Weight for product " + i + ":";
+
+                const weightInput = document.createElement("input");
+                weightInput.type = "number";
+                weightInput.name = "weight-" + i;
+                weightInput.required = true;
+
+                const valueLabel = document.createElement("label");
+                valueLabel.textContent = "Profit for product " + i + ":";
+
+                const valueInput = document.createElement("input");
+                valueInput.type = "number";
+                valueInput.name = "value-" + i;
+                valueInput.required = true;
+
+                // const divisibleLabel = document.createElement("label");
+                // divisibleLabel.textContent = "Divisible or Indivisible for product " + i + ":";
+
+                const divisibleDropdown = document.createElement("select");
+                divisibleDropdown.name = "divisible-" + i;
+
+                const divisibleOption1 = document.createElement("option");
+                divisibleOption1.value = "divisible";
+                divisibleOption1.textContent = "Divisible";
+
+                const divisibleOption2 = document.createElement("option");
+                divisibleOption2.value = "indivisible";
+                divisibleOption2.textContent = "Indivisible";
+
+                divisibleDropdown.appendChild(divisibleOption1);
+                divisibleDropdown.appendChild(divisibleOption2);
+
+
+                inputGroup.appendChild(weightLabel);
+                inputGroup.appendChild(weightInput);
+                inputGroup.appendChild(valueLabel);
+                inputGroup.appendChild(valueInput);
+                // inputGroup.appendChild(divisibleLabel);
+                inputGroup.appendChild(divisibleDropdown);
+                productInputsContainer.appendChild(inputGroup);
+            }
+
+            // Remove previous capacity input field
+            const previousCapacityInput = document.getElementById("capacity-input");
+            if (previousCapacityInput) {
+                previousCapacityInput.remove();
+            }
+
+            // Remove previous result
+            const previousResult = document.getElementById("result");
+            if (previousResult) {
+                previousResult.remove();
+            }
+
+            // Remove previous submit button
+            const previousSubmitButton = document.querySelector("input[type='submit']");
+            if (previousSubmitButton) {
+                previousSubmitButton.remove();
+            }
+
+            // Create submit button
+            const submitButton = document.createElement("input");
+            submitButton.type = "submit";
+            submitButton.value = "Submit";
+
+            productInputsContainer.appendChild(submitButton);
+        });
+
+        document.getElementById("knapsack-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get the number of products entered by the user
+            const numProducts = parseInt(document.getElementById("num-products").value);
+
+            // Create arrays to store weights and values
+            const weights = [];
+            const values = [];
+
+            // Retrieve weights and values entered by the user
+            for (let i = 1; i <= numProducts; i++) {
+                const weightInput = document.getElementsByName("weight-" + i)[0];
+                const valueInput = document.getElementsByName("value-" + i)[0];
+
+                weights.push(parseFloat(weightInput.value));
+                values.push(parseFloat(valueInput.value));
+            }
+
+            // Get the capacity entered by the user
+            const capacity = parseFloat(document.getElementById("capacity").value);
+
+            // Call the knapsack function with the inputs
+            const result = knapsack_dynamic_programming(weights, values, capacity);
+
+            // Remove previous result
+            const previousResult = document.getElementById("result");
+            if (previousResult) {
+                previousResult.remove();
+            }
+
+            // Display the result
+            const resultContainer = document.createElement("div");
+            resultContainer.id = "result";
+            resultContainer.innerHTML = `
+                <p>Max Value: ${result[0]}</p>
+                <p>Included Items: ${result[1].join(", ")}</p>
+            `;
+
+            document.getElementById("knapsack-form").appendChild(resultContainer);
+        });
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Knapsack Problem</title>
+    <link rel="stylesheet" type="text/css" href="static/stylesinput.css">
+</head>
+<body>
+    <h1>PRODUCT DETAILS</h1>
+    <div class="container">
+        <form id="knapsack-form">
+            <div>
+                <label for="num-products">Number of Products:</label>
+                <input type="number" id="num-products" name="num-products" placeholder="Enter the number of products" required>
+            </div>
+            <div id="product-inputs"></div>
+            <div id="capacity-input">
+                <label for="capacity">Capacity:</label>
+                <input type="number" id="capacity" name="capacity" placeholder="Enter capacity" required>
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='scriptinput.js') }}" defer></script>
+</body>
+</html>

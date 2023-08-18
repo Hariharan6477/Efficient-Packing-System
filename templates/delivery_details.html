@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Shipping Details</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'><link rel="stylesheet" href="static/style_har.css">
+
+</head>
+<body>
+<div class="login-form">
+
+  <form action="{{url_for('details')}}", method="post">
+    <h1>Shipping Details</h1>
+    <div class="content">
+
+      <div class="input-field">
+        <input required type="text" placeholder="First Name" pattern="[A-Za-z]*" title="Only alphabets are allowed." autocomplete="nope" name="fname">
+      </div>
+
+      <div class="input-field">
+        <input required type="text" placeholder="Last Name" pattern="[A-Za-z]*" title="Only alphabets are allowed." autocomplete="nope" name="lname">
+      </div>
+
+      <!-- <div class="input-field">
+        <input required type="email" placeholder="Email ID" autocomplete="nope" name="em">
+      </div> -->
+
+
+      <div class="input-field">
+        <input required type="text" placeholder="Address" autocomplete="nope" title="Address should not be empty" pattern="[A-Za-z0-9,./]*" name="add">
+      </div>
+
+      <div class="input-field">
+        <input required type="text" title="Invalid number" pattern="[1-9]{1}[0-9]{9}" placeholder="Mobile Number" autocomplete="nope" name="num">
+      </div>
+      
+    </div>
+
+    <div class="action">
+
+      <button type = "submit"  >Place Order</button>
+      
+    </div>
+  </form>
+  
+</div>
+
+</body>
+</html>

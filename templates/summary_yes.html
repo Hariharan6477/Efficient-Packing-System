@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="static/stylesinput1.css">
+    <title>Order</title>
+</head>
+<body>
+    <h1>PACKING SUMMARY</h1>
+    <div class="container">
+        <p style="font-size: 25px;">Package 1: {{ selected_products }} , Total Weight( in kg): {{ total_weight }}</p>
+        <p style="font-size: 25px;">Package 2 ({{wt}} kg): {{ not_included }} , Total Weight(in kg): {{ rem_weight  }}</p>
+    </div>
+    <div class="image-container">
+        <img style="width: 45%;height: 35%;"src="{{ url_for('static', filename='graph1.png') }}">
+        <img src="{{ url_for('static', filename='graph2.png') }}">
+        <img src="{{ url_for('static', filename='graph3.png') }}">
+    </div>
+    <div class="placebutton">
+        <a href="/deliverydetails"><button class=" button button2">Book Order</button></a>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('loginbg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    text-align: center;
+    color: #080707; /* Set the color of the heading text if needed */
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Increase the width of the container */
+    max-width: 1500px; /* Set a maximum width if needed */
+    padding: 50px; /* Increase the padding for more space */
+    background: rgba(235, 230, 230, 0.5);
+    border-radius: 10px;
+    color: #141313;
+    box-sizing: border-box;
+
+}
+
+/* Increase the font size and spacing of the form inputs and labels */
+form input[type="text"],
+form input[type="number"] {
+    font-size: 18px;
+    padding: 12px;
+    margin-bottom: 12px;
+}
+
+form label {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+/* Increase the font size and spacing of the submit button */
+form input[type="submit"] {
+    padding: 14px 28px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.input-group input {
+    flex: 1;
+    margin-left: 10px;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* select {
+    width: 20%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+} */
+table {
+    width: 100%;
+}
+select {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    border: 10ex;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: transparent; 
+    color: #245953; 
+    border: 2px solid #245953;
+}
+
+input[type="submit"]:hover {
+    background-color: #245953;
+    color: white;
+}

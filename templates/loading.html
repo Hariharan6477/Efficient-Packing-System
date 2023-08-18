@@ -1,0 +1,28 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Loading</title>
+
+		<meta http-equiv="refresh" content="3;url={{url_for('finalpage1')}}" />
+	</head>
+<style>
+	body{
+		justify-content: center;
+		align-items: center;
+		
+	}
+
+	.loading{
+		padding-left: 360px;
+	}
+</style>
+	<body>
+		<div class = "loading">
+			<img src="{{ url_for('static', filename='11.gif') }}">
+		</div>
+		
+	</body>
+	</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Register Form</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Rubik:400,700'><link rel="stylesheet" href="static/loginstyle.css">
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login-form">
+  <form action="{{url_for('register')}}", method="post">
+    <div class="msg">{{ msg }}</div>
+    <h1>Register</h1>
+    <div class="content">
+      <div class="input-field">
+        <input required type="text" placeholder="Name" title="Name should not be in valid format and non empty." pattern= "[A-Za-z]*" name="name">
+        <input required type="text" placeholder="Phone" title="Enter a valid phone number" pattern="[1-9]{1}[0-9]{9}" name="phone">
+        <input required type="text" placeholder="Email" title="Enter a valid email" pattern="[A-Za-z][A-Za-z0-9]*@gmail.com" name="email">
+        <input required type="password" placeholder="password" name="password">
+      </div >
+    <div class="action">
+      <!-- <a href=hello> -->
+      <!-- </a> -->
+      <!-- <a href=hello> -->
+        <button type="submit">Sign-up</button>
+      <!-- </a> -->
+    </div>
+  </form>
+</div>
+<!-- partial -->
+
+</body>
+</html>

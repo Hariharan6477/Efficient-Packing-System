@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Knapsack Problem</title>
+    <link rel="stylesheet" type="text/css" href="static/stylesinput.css">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+    <h1 style="color:#116D6E;font-size: 50px;">Product details</h1>
+    <div class="container">
+        <form id="knapsack-form" method="POST" action="/weights-and-values">
+            <div>
+                <label for="num-products" style="color:#27374D;font-style: bol;">Number of Products:</label>
+                <input min="1" max="15" type="number" id="num-products" name="num-products" placeholder="Enter the number of products" required>
+            </div>
+            <div id="product-inputs"></div>
+            <div id="capacity-input">
+                <label for="capacity" style="color:#27374D;">Capacity of the box:</label>
+                <input min="1" type="number" id="capacity" name="capacity" placeholder="Enter capacity" required>
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <!-- <script>
+        // Add your JavaScript code here if needed
+    </script> -->
+</body>
+</html>

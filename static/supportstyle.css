@@ -1,0 +1,8 @@
+body{
+    background-image: url('support.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 25px;
+}

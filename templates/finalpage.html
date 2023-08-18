@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="5;url={{url_for('logout')}}" />
+    <title>Order placed!</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="static/stylesfinalpage.css">
+
+
+
+</head>
+
+<body>
+
+
+
+<div class = 'class'>
+    <div class = 'text'>
+       
+        <h1 style = "color:rgb(3, 26, 142)">
+            Your order has been confirmed!
+        </h1>
+        
+        <p>Your order costs Rs.{{cost}}.00 !!!</p>
+        <p>Your request will be packed soon.</p>
+        
+        <p>Check your mail for further shipping details.</p>
+        
+        <p>The packages will be delivered within 2-3 working days.</p>
+    
+
+    </div>  
+    
+    <div class = "img">
+
+        <img src="{{ url_for('static', filename='12.gif') }}" style = "border-radius:30px ;">
+    </div>
+
+</div>    
+</body>
+
+</html>

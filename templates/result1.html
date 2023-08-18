@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Knapsack Problem - Result</title>
+    <link rel="stylesheet" type="text/css" href="static/stylesinput1.css">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+    <h1>Knapsack Problem - Result</h1>
+    <div class="container">
+        <p style="font-size: 25px;">Maximum value: {{ optimal_solution }} (Rupees)</p>
+        <p style="font-size: 25px;">Selected Products: {{ selected_products }}</p>
+    </div>
+    <div class="image-container">
+        <img style="width: 45%;height: 35%;"src="{{ url_for('static', filename='graph1.png') }}">
+        <img src="{{ url_for('static', filename='graph2.png') }}">
+        <img src="{{ url_for('static', filename='graph3.png') }}">
+    </div>
+    <div class="placebutton">
+        <a href="/deliverydetails"><button class="button button2">Book Order</button></a>
+    </div>
+   
+</body>
+</html>

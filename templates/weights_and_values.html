@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Knapsack Problem - Weights and Values</title>
+    <link rel="stylesheet" type="text/css" href="static/stylesinputdetails.css">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+<body>
+    <h1>Enter Weights and Values</h1>
+    <div class="container">
+        <form id="weights-values-form" method="POST" action="{{ url_for('result') }}">
+        <h1>PRODUCT DETAILS</h1>
+        <table>
+            {% for product in range(num_products) %}
+            <tr>
+                <td><label for="name{{ product }}">Name of Product {{ product+1 }}:</label></td>
+                <td><input type="text" id="name{{ product }}" name="name{{ product }}" placeholder="Name of item {{product+1}}" required></td>
+                <td><label for="weight{{ product }}">Weight for Product {{ product+1 }}(kg):</label></td>
+                <td><input min="1" type="number" id="weight{{ product }}" name="weight{{ product }}" placeholder="Weight of item {{product+1}}" required></td>
+                <td><label for="value{{ product }}">Value for Product {{ product+1 }}(Rupees):</label></td>
+                <td><input min="1" type="number" id="value{{ product }}" name="value{{ product }}" placeholder="Profit of item {{product+1}}" required></td>
+                <td><label for="myDropdown">Select type:</label>
+                <td>
+                    <!-- <label for="divisible{{ product }}">Divisible:</label> -->
+                    <select id="divisible{{ product }}" name="divisible{{ product }}">
+                        <option value="1">Divisible</option>
+                        <option value="0">Indivisible</option>
+                    </select>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+            <input type="hidden" name="num-products" value="{{ num_products }}">
+            <input type="hidden" name="capacity" value="{{ capacity }}">
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
